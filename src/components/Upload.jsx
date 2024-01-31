@@ -7,7 +7,8 @@ function Upload() {
   const [typeError, setTypeError] = useState(null);
 
   // submit state
-  const [excelData, setExcelData] = useState(null);
+  // const [excelData, setExcelData] = useState(null); //todo when viewing excel data
+  const [uploadedFiles, setUploadedFiles] = useState([]);
 
   // onchange event
   const handleFile = (e) => {
@@ -20,11 +21,7 @@ function Upload() {
     if (selectedFile) {
       if (selectedFile && fileTypes.includes(selectedFile.type)) {
         setTypeError(null);
-        let reader = new FileReader();
-        reader.readAsArrayBuffer(selectedFile);
-        reader.onload = (e) => {
-          setExcelFile(e.target.result);
-        };
+        setExcelFile(selectedFile);
       } else {
         setTypeError("Please select only excel file types");
         setExcelFile(null);
@@ -35,14 +32,22 @@ function Upload() {
   };
 
   // submit event
+  // const handleFileSubmit = (e) => {
+  //   e.preventDefault();
+  //   if (excelFile !== null) {
+  //     const workbook = XLSX.read(excelFile, { type: "buffer" });
+  //     const worksheetName = workbook.SheetNames[0];
+  //     const worksheet = workbook.Sheets[worksheetName];
+  //     const data = XLSX.utils.sheet_to_json(worksheet);
+  //     setExcelData(data.slice(0, 10));
+  //   }
+  // };
+
   const handleFileSubmit = (e) => {
     e.preventDefault();
     if (excelFile !== null) {
-      const workbook = XLSX.read(excelFile, { type: "buffer" });
-      const worksheetName = workbook.SheetNames[0];
-      const worksheet = workbook.Sheets[worksheetName];
-      const data = XLSX.utils.sheet_to_json(worksheet);
-      setExcelData(data.slice(0, 10));
+      const fileName = excelFile.name;
+      setUploadedFiles([...uploadedFiles, fileName]);
     }
   };
 
@@ -72,7 +77,7 @@ function Upload() {
       </form>
 
       {/* view data */}
-      <div className="viewer">
+      {/* <div className="viewer">
         {excelData ? (
           <div className="table-responsive">
             <table className="table">
@@ -90,6 +95,31 @@ function Upload() {
                     {Object.keys(individualExcelData).map((key) => (
                       <td key={key}>{individualExcelData[key]}</td>
                     ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        ) : (
+          <div>No File is uploaded yet!</div>
+        )}
+      </div> */}
+
+      {/* view uploaded file names */}
+      <div className="viewer">
+        {uploadedFiles.length > 0 ? (
+          <div className="table-responsive">
+            <table className="table bg-blue-300 w-full mt-5">
+              <thead>
+                <tr>
+                  <th className="text-xl font-bold">File Name</th>
+                </tr>
+              </thead>
+
+              <tbody className="text-black mt-3">
+                {uploadedFiles.map((fileName, index) => (
+                  <tr key={index}>
+                    <td className=" border-y-2 border-blue-700 p-2 text-lg tracking-wide">{fileName}</td>
                   </tr>
                 ))}
               </tbody>
