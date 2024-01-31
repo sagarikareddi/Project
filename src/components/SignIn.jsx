@@ -1,10 +1,8 @@
 import React, { useState } from "react";
 // import tpte from "../Images/tpte_.png";
 import { GoogleLogin } from "@react-oauth/google";
-import { useNavigate,Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import signinimg from "../img/signin.png";
-import logoimg from "../img/logo.png";
-import Sidebar from "./Sidebar";
 export default function SignIn() {
   const [showpass, setShowPass] = useState(false);
   const [showSidebar, setShowSidebar] = useState(false);
@@ -19,12 +17,10 @@ export default function SignIn() {
       <div className="bg-teal-50 h-[90vh] flex item-center justify-between ">
         <div>
           <div>
-            <div className=" w-[44vw] -m-l-[5vw] ">
+            <div className=" w-[45vw] -m-l-[5vw] ">
               <div className=" absolute ">
-                <p className=" text-5xl mt-[50vh] tracking-widest font-bold text-white ml-36">
-                  
-                </p>
-                <div className="w-[25vw] h-[10vh] mt-[20vh] border-0 flex items-center justify-around z-50">
+                <p className=" text-5xl mt-[50vh] tracking-widest font-bold text-white ml-36"></p>
+                <div className="w-[25vw] h-[10vh] ml-16 mt-[20vh] border-0 flex items-center justify-around z-50">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="w-[50px] h-[50px] mt-80"
@@ -41,7 +37,10 @@ export default function SignIn() {
                     className="w-[50px] h-[50px] mt-80"
                     viewBox="0 0 512 512"
                   >
-                    <path fill="#f5f7f2" d="M459.4 151.7c.3 4.5 .3 9.1 .3 13.6 0 138.7-105.6 298.6-298.6 298.6-59.5 0-114.7-17.2-161.1-47.1 8.4 1 16.6 1.3 25.3 1.3 49.1 0 94.2-16.6 130.3-44.8-46.1-1-84.8-31.2-98.1-72.8 6.5 1 13 1.6 19.8 1.6 9.4 0 18.8-1.3 27.6-3.6-48.1-9.7-84.1-52-84.1-103v-1.3c14 7.8 30.2 12.7 47.4 13.3-28.3-18.8-46.8-51-46.8-87.4 0-19.5 5.2-37.4 14.3-53 51.7 63.7 129.3 105.3 216.4 109.8-1.6-7.8-2.6-15.9-2.6-24 0-57.8 46.8-104.9 104.9-104.9 30.2 0 57.5 12.7 76.7 33.1 23.7-4.5 46.5-13.3 66.6-25.3-7.8 24.4-24.4 44.8-46.1 57.8 21.1-2.3 41.6-8.1 60.4-16.2-14.3 20.8-32.2 39.3-52.6 54.3z" />
+                    <path
+                      fill="#f5f7f2"
+                      d="M459.4 151.7c.3 4.5 .3 9.1 .3 13.6 0 138.7-105.6 298.6-298.6 298.6-59.5 0-114.7-17.2-161.1-47.1 8.4 1 16.6 1.3 25.3 1.3 49.1 0 94.2-16.6 130.3-44.8-46.1-1-84.8-31.2-98.1-72.8 6.5 1 13 1.6 19.8 1.6 9.4 0 18.8-1.3 27.6-3.6-48.1-9.7-84.1-52-84.1-103v-1.3c14 7.8 30.2 12.7 47.4 13.3-28.3-18.8-46.8-51-46.8-87.4 0-19.5 5.2-37.4 14.3-53 51.7 63.7 129.3 105.3 216.4 109.8-1.6-7.8-2.6-15.9-2.6-24 0-57.8 46.8-104.9 104.9-104.9 30.2 0 57.5 12.7 76.7 33.1 23.7-4.5 46.5-13.3 66.6-25.3-7.8 24.4-24.4 44.8-46.1 57.8 21.1-2.3 41.6-8.1 60.4-16.2-14.3 20.8-32.2 39.3-52.6 54.3z"
+                    />
                   </svg>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -68,12 +67,12 @@ export default function SignIn() {
               <img
                 src={signinimg}
                 alt=""
-                className=" object-cover h-[100vh] border-0 border-black"
+                className="w-[45vw] h-[100vh] border-0 border-black"
               />
             </div>
           </div>
         </div>
-        <div className="flex items-center justify-center w-[40vw] mx-32 mt-[24vh] border-0 ">
+        <div className="flex items-center justify-center w-[40vw] mx-28 mt-[24vh] border-0 ">
           <div className=" md:hidden sm:mb-8 mb-6">
             <svg
               width={191}
@@ -92,13 +91,13 @@ export default function SignIn() {
               />
             </svg>
           </div>
-          {/* login form start */}  
+          {/* login form start */}
           <div className="shadow-lg border-2 border-black rounded text-gray-900 w-full lg:px-10 sm:px-6 sm:py-10 px-2 py-6 mb-40">
             <h1
               tabIndex={0}
               className="focus:outline-none mb-4 text-2xl tracking-wider font-bold leading-6 "
             >
-             Sign In
+              Sign In
             </h1>
             {/* <p
               tabIndex={0}
@@ -253,11 +252,11 @@ export default function SignIn() {
               <h3>Forgot Password?</h3>
             </div>
             <div className="mt-8">
-              <button className="focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 text-sm font-semibold leading-none text-white focus:outline-none bg-indigo-700 border rounded hover:bg-indigo-600 py-4 w-full">
-                <Link to="/" className="tracking-widest">
+              <Link to="/Sidebar" className="tracking-widest">
+                <button className="focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 text-sm font-semibold leading-none text-white focus:outline-none bg-indigo-700 border rounded hover:bg-indigo-600 py-4 w-full">
                   SignIn
-                </Link>
-              </button>
+                </button>
+              </Link>
             </div>
           </div>
           {/* login form end */}
